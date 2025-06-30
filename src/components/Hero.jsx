@@ -48,22 +48,21 @@ const Hero = () => {
     // video animation timeline
     // create the timeline with default duration
 
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "video",
-          start: startValue,
-          end: endValue,
-          scrub: true,
-          pin: true
-        },
-      })
-      
-      videoRef.current.onloadedmetadata = () => {
-        tl.to(videoRef.current, {
-          currentTime: videoRef.current.duration
-        })
-      }
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "video",
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    videoRef.current.onloadedmetadata = () => {
+      tl.to(videoRef.current, {
+        currentTime: videoRef.current.duration,
+      });
+    };
   }, []);
   return (
     <>
@@ -90,9 +89,9 @@ const Hero = () => {
 
             <div className="view-cocktails">
               <p className="subtitle">
-                Every cocktail in out menu is blend of premium ingredients,
-                creative, flair, and timeless recipes designed to delight your
-                senses
+                Every cocktail on our menu is a blend of premium ingredients,
+                creative flair, and timeless recipes — designed to delight your
+                senses.
               </p>
               <a href="#cocktails">View Cocktails</a>
             </div>
@@ -111,6 +110,6 @@ const Hero = () => {
       </div>
     </>
   );
-}
+};
 
 export default Hero;
